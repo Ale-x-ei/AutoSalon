@@ -1,0 +1,12 @@
+name = YoxView
+description = YoxView provides an image viewer formatter.
+core = 7.x
+
+files[] = yoxview.module
+
+; Information added by drupal.org packaging script on 2011-05-25
+version = "7.x-1.2"
+core = "7.x"
+project = "yoxview"
+datestamp = "1306352217"
+

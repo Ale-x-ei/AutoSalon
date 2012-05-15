@@ -1,0 +1,14 @@
+name = Galerie
+description = "Provides image galeries."
+core = 7.x
+package = Galerie
+files[] = galerie.module
+files[] = galerie.install
+php = 5.3
+
+; Information added by drupal.org packaging script on 2012-05-03
+version = "7.x-1.5"
+core = "7.x"
+project = "galerie"
+datestamp = "1336036855"
+
