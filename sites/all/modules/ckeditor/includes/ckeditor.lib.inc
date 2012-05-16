@@ -934,6 +934,8 @@ function ckeditor_profile_settings_compile( $global_profile, $profile ) {
             $_SESSION['ckeditor'][$profile_name]['UserFilesAbsolutePath'] = variable_get('file_private_path', '') . DIRECTORY_SEPARATOR;
           }
         }
+        $_SESSION['ckeditor']['license_name'] = trim($global_profile->settings['license_name']);
+        $_SESSION['ckeditor']['license_key'] = trim($global_profile->settings['license_key']);
         }
     }
     /* MODULES NOT PORTED TO D7

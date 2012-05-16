@@ -74,7 +74,7 @@ function ckeditor_help_delegate($path, $arg) {
                 t('Useful links: !ckeditorlink | !devguidelink | !userguidelink.',
                     array(
                         '!ckeditorlink' => l(t('CKEditor website'), 'http://ckeditor.com'),
-                        '!devguidelink' => l(t('Developer\'s Guide'), 'http://docs.cksource.com/CKEditor_3.x/Developers_Guide'),
+                        '!devguidelink' => l(t('CKEditor for Drupal Documentation'), 'http://docs.cksource.com/CKEditor_for_Drupal'),
                         '!userguidelink' => l(t('User\'s Guide'), 'http://docs.cksource.com/CKEditor_3.x/Users_Guide')
                     )
                 ) .
@@ -96,7 +96,7 @@ function ckeditor_help_delegate($path, $arg) {
                 t('Useful links: !ckeditorlink | !devguidelink | !userguidelink.',
                     array(
                         '!ckeditorlink' => l(t('CKEditor website'), 'http://ckeditor.com'),
-                        '!devguidelink' => l(t('Developer\'s Guide'), 'http://docs.cksource.com/CKEditor_3.x/Developers_Guide'),
+                        '!devguidelink' => l(t('CKEditor for Drupal Documentation'), 'http://docs.cksource.com/CKEditor_for_Drupal'),
                         '!userguidelink' => l(t('User\'s Guide'), 'http://docs.cksource.com/CKEditor_3.x/Users_Guide')
                     )
                 ) .
@@ -121,10 +121,9 @@ function ckeditor_help_delegate($path, $arg) {
                 '<br /><code>' .
                 htmlspecialchars('<a> <p> <span> <div> <h1> <h2> <h3> <h4> <h5> <h6> <img> <map> <area> <hr> <br> <br /> <ul> <ol> <li> <dl> <dt> <dd> <table> <tbody> <th> <tr> <td> <em> <b> <u> <i> <strong> <del> <ins> <sub> <sup> <quote> <blockquote> <pre> <address> <code> <cite> <embed> <object> <param> <strike> <caption> <iframe>') .
                 '</code><br />' .
-                t('<strong>Note:</strong> be careful when granting users access to create tags like %iframe.<br />If you are going to use CKEditor with the <strong>Filtered HTML</strong> input format, please read the "Setting up filters" section in the !readme file.',
+                 t('<strong>Note:</strong> be careful when granting users access to create tags like %iframe.',
                     array(
                         '%iframe' => '<iframe>',
-                        '!readme' => '<code>' . l(t('README.txt'), $base_url . '/' . drupal_get_path('module', 'ckeditor') . '/README.txt', array('absolute' => TRUE)) . '</code>'
                     )
                 ) .
                 '</li>' .
@@ -163,33 +162,7 @@ function ckeditor_help_delegate($path, $arg) {
                     array(
                         '!herelink' => l(t('here'), 'http://drupal.ckeditor.com/tricks')
                     )
-                ) .
-                '</p>' .
-                '<h3>' .
-                t('Uploading images and files') .
-                '</h3>' .
-                '<p>' .
-                t('There are three ways for uploading files:') .
-                '</p>' .
-                '<ol>' .
-                '<li>' .
-                t('By using !ckfinder (commercial), an advanced Ajax file manager.',
-                    array(
-                        '!ckfinder' => l(t('CKFinder'), 'http://ckfinder.com'),
-                    )
-                ) .
-                '</li>' .
-                '<li>' .
-                t('By using a dedicated module like !imcelink.',
-                    array(
-                        '!imcelink' => l(t('IMCE'), 'http://drupal.org/project/imce')
-                    )
-                ) .
-                '</li>' .
-                '<li>' .
-                t('By using the core upload module.') .
-                '</li>' .
-                '</ol>';
+                ) .'</p>' ;
 
             break;
     }

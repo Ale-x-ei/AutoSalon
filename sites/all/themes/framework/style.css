@@ -42,11 +42,13 @@ Equation for font sizing:
 /**
  * 1.GLOBAL
  */
-.field-name-field-image{float:left; padding-right: 10px;}
-.field-item{float:left; padding-right: 10px; }
+.field-name-field-image{float:left; padding-right: 15px;}
+.field-item{font-size:13px; padding-left: 10px;float:left; }
 .menu{float:right;margin-top:-30px;font-size:10px;}
-.block-title{font-size:0;}
-#user-login-form{float:right;font-size:13px;margin-top:-40px;}
+.block-title,.breadcrumb{font-size:0;}
+#user-login-form{float:right;font-size:13px;margin-top:-40px;color:#FFFFFF;}
+#header{background-color:#444;height:260px;width:950px;}
+
 body {
   background: #fff;
   color: #222;
@@ -96,7 +98,7 @@ p {
 
 a { color: #069; text-decoration: none; }
 
-a:visited { color: #309; }
+a:visited { color: #39f; }
 
 a:hover, a:active, li a.active  { color: #39f; }
 
@@ -227,6 +229,7 @@ body.sidebar-second #sidebar-second {
 #header #site-name-slogan {
   float: left;
   margin: 0 0 1.5em;
+   color:#FFFFFF;
 }
 
 #header #site-name {
@@ -239,10 +242,12 @@ body.sidebar-second #sidebar-second {
 
 #header #site-name a:hover {
   text-decoration: none;
+  
 }
 
 #header #site-slogan {
   margin: 0;
+  
 }
 
 /**
@@ -493,3 +498,4 @@ ul.secondary a.active {
 
 /* display block */
 .display-block { display: block; }
+

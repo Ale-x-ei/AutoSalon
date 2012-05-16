@@ -181,6 +181,9 @@ function ckeditor_permission() {
  * lower the amount of code in ckeditor.module.
  */
 function ckeditor_help($path, $arg) {
+  if (preg_match('#admin/[\w/]+/ckeditor#', $path)) {
+    ckeditor_check_license();
+  }
     module_load_include('inc', 'ckeditor', 'includes/ckeditor.page');
     return module_invoke('ckeditor', 'help_delegate', $path, $arg);
 }
@@ -520,5 +523,18 @@ function ckeditor_file_download($uri) {
       $info = image_get_info($uri);
       return array('Content-Type' => $info['mime_type']);
     }
+  }
+}
+
+/*
+ * check if package is licensed
+*/
+
+function ckeditor_check_license() {
+  module_load_include('inc', 'ckeditor', 'includes/ckeditor.functions');
+  $profile = ckeditor_profile_load('CKEditor Global Profile');
+  $authenticated = ckeditor_check_package_license($profile->settings['license_key'], $profile->settings['license_name']);
+  if ($authenticated['authenticate'] == FALSE && strstr($_GET['q'], 'ckeditor')) {
+    drupal_set_message(t('You are using an unlicensed version of the CKEditor module for Drupal. Visit <a href="http://ckeditor.com/ckeditor-for-drupal">http://ckeditor.com/ckeditor-for-drupal</a> to purchase a licensed version that also includes a license for a full-featured file browser, CKFinder, and a dedicated support channel'), 'warning');
   }
 }

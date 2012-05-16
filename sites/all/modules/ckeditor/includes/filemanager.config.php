@@ -84,7 +84,8 @@ function CheckAuthentication() {
 }
 
 CheckAuthentication();
-
+$config['LicenseName'] = trim($_SESSION['ckeditor']['license_name']);
+$config['LicenseKey'] = trim(substr($_SESSION['ckeditor']['license_key'],15));
 if (isset($_SESSION['ckeditor']['UserFilesPath'], $_SESSION['ckeditor']['UserFilesAbsolutePath'])) {
     $baseUrl = $_SESSION['ckeditor']['UserFilesPath'];
     $baseDir = $_SESSION['ckeditor']['UserFilesAbsolutePath'];

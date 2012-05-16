@@ -55,8 +55,8 @@ function ckeditor_install() {
 
     //insert settings for default role
     $arr = array();
-    $arr['filebrowser'] = 'none';
-    $arr['quickupload'] = 'f';
+    $arr['filebrowser'] = 'ckfinder';
+    $arr['quickupload'] = 't';
 
     //security
     $arr['ss'] = "2";
@@ -103,7 +103,7 @@ function ckeditor_install() {
 
     //upload
     //get permissions here like in _update_role_permissions
-    $arr['filebrowser'] = "none";
+    $arr['filebrowser'] = "ckfinder";
     $arr['user_choose'] = "f";
     $arr['ckeditor_load_method'] = "ckeditor.js";
     $arr['ckeditor_load_time_out'] = 0;
@@ -140,6 +140,9 @@ function ckeditor_install() {
     if ($editor_path) {
         $arr['ckeditor_path'] = $editor_path;
     }
+
+    $arr['license_name'] = '';
+    $arr['license_key'] = '';
 
     db_insert('ckeditor_settings')->fields(array("name" => "CKEditor Global Profile", "settings" => serialize($arr)))->execute();
 

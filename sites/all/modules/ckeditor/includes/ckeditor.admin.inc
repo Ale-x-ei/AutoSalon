@@ -184,6 +184,31 @@ function ckeditor_admin_global_profile_form($form, $form_state, $mode = 'add') {
         $formats[$format->format] = $format->name;
     }
 
+    $form['ckeditor_license_settings'] = array(
+      '#type' => 'fieldset',
+      '#title' => t('License Information'),
+      '#collapsible' => TRUE,
+      '#collapsed' => FALSE,
+    );
+
+   $form['ckeditor_license_settings']['license_name'] = array(
+     '#type' => 'textfield',
+     '#title' => t('License name'),
+     '#default_value' => isset($profile->settings['license_name']) ? $profile->settings['license_name'] : '',
+     '#size' => 50,
+     '#maxlength' => 128,
+     '#description' => t('CKEditor for Drupal license name. If left empty, CKFinder will run in the demonstration mode.'),
+    );
+
+    $form['ckeditor_license_settings']['license_key'] = array(
+     '#type' => 'textfield',
+     '#title' => t('License key'),
+     '#default_value' => isset($profile->settings['license_key']) ? $profile->settings['license_key'] : '',
+     '#size' => 50,
+     '#maxlength' => 128,
+     '#description' => t('CKEditor for Drupal license name. If left empty, CKFinder will run in the demonstration mode.'),
+    );
+
     $form['ckeditor_advanced_settings'] = array(
         '#type' => 'fieldset',
         '#title' => t('Advanced settings'),
