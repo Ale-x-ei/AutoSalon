@@ -46,10 +46,6 @@ Equation for font sizing:
 .field-item{float:left; padding-right: 10px; }
 .menu{float:right;margin-top:-30px;font-size:10px;}
 .block-title{font-size:0;}
-/*.form-type-textfield{float:right;margin-top:-40px;font-size:13px;}
-.form-type-password{float:right;margin-top:-2px;margin-right:-124px;font-size:13px;}
-.item-list{float:right;margin-top:40px;margin-right:-125px;font-size:10px;}
-.form-actions#edit-actions{float:right;margin-top:70px;margin-right:-125px;font-size:10px;}*/
 #user-login-form{float:right;font-size:13px;margin-top:-40px;}
 body {
   background: #fff;
