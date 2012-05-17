@@ -42,12 +42,21 @@ Equation for font sizing:
 /**
  * 1.GLOBAL
  */
-.field-name-field-image{float:left; padding-right: 15px;}
-.field-item{font-size:13px; padding-left: 10px;float:left; }
-.menu{float:right;margin-top:-30px;font-size:10px;}
-.block-title,.breadcrumb{font-size:0;}
-#user-login-form{float:right;font-size:13px;margin-top:-40px;color:#FFFFFF;}
-#header{background-color:#444;height:260px;width:950px;}
+.field-name-field-image{float:left; padding-right: 15px;} /*фото новости*/
+.field-item{font-size:13px; padding-left: 10px;float:left; }/*фото вмести*/
+.menu{float:right;margin-top:-30px;font-size:10px;list-style: none;}/*меню пользов.*/
+.block-title,.breadcrumb{font-size:0;}/**/
+#user-login-form{float:right;font-size:13px;margin-top:-40px;color:#FFFFFF;}/*форма логин-пароль*/
+#header{
+height:260px;
+width:950px;
+background: -o-linear-gradient(to top, #4C4C4C, #000000);
+    background: -webkit-linear-gradient(bottom,#4C4C4C, #000000);
+    background: -ms-linear-gradient(#4C4C4C, #000000);
+    background: linear-gradient(#4C4C4C, #000000);
+}/*шапка*/
+
+.block
 
 body {
   background: #fff;
@@ -59,7 +68,7 @@ body {
   padding: 0;
 }
 
-h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+ h2, h3, h4, h5, h6,  .h2, .h3, .h4, .h5, .h6 {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-style: normal;
   font-weight: normal;
@@ -130,7 +139,10 @@ th { padding-right: 1em; }
   margin: 0 auto;
   padding: 0 10px;
   width: 940px;
-  background-color:silver;
+background: -o-linear-gradient(to left, #555, white);
+    background: -webkit-linear-gradient(right,#555, white);
+    background: -ms-linear-gradient(#555, white);
+    background: linear-gradient(#444, #111);
 }
 
 /**
@@ -234,10 +246,11 @@ body.sidebar-second #sidebar-second {
 
 #header #site-name {
   font-family: Arial, Helvetica, sans-serif;
-  font-size: 2.5em;
+  font-size: 6.5em;
   font-weight: 700;
-  line-height: 1.2;
+  line-height: 1;
   margin: 0;
+ 
 }
 
 #header #site-name a:hover {
@@ -247,7 +260,8 @@ body.sidebar-second #sidebar-second {
 
 #header #site-slogan {
   margin: 0;
-  
+  padding-left:250px;
+  padding-top:25px;
 }
 
 /**
@@ -464,7 +478,7 @@ ul.secondary a.active {
  */
 
 .block {
-  margin-bottom: 1.5em;
+  margin-bottom: 0.1em;
 }
 
 /**
