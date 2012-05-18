@@ -56,7 +56,16 @@ background: -o-linear-gradient(to top, #4C4C4C, #000000);
     background: linear-gradient(#4C4C4C, #000000);
 }/*шапка*/
 
-.block
+table {
+	display: block;
+	text-decoration: none;
+	color: #333;
+	
+	padding: 5px;
+	border: 1px solid #ccc;
+	border-bottom: 0;
+	}
+
 
 body {
   background: #fff;
