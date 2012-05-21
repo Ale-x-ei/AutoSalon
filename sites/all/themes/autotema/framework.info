@@ -1,6 +1,6 @@
 name = Autotema
-description = Framework is a blank canvas for theme developers. Use Framework as a starting point to facilitate your theme development.
-core = 7.x
+description = Autotema - tema dlia saita autosalona.
+core = 1.x
 engine = phptemplate
 stylesheets[all][] = style.css
 
@@ -15,8 +15,8 @@ regions[footer]         = Footer
 
 
 ; Information added by drupal.org packaging script on 2011-11-02
-version = "7.x-3.6"
-core = "7.x"
-project = "framework"
-datestamp = "1320214533"
+version = "1.0"
+core = "1.0"
+project = "autotema"
+datestamp = "13202145999"
 
