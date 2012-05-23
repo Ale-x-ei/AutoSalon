@@ -71,6 +71,10 @@ float:right;
 font-size:13px;
 }
 @font-face {   font-family:Old English Text MT;   src: url(http://autosalon.md/sites/all/temes/autotema/OLDENGL.TTF);	}
+.container-inline{
+margin: -106px 0px 0px 0px;
+float: right;
+z-index: 99999;}
 table {
 	display: block;
 	text-decoration: none;
