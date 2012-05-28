@@ -1,0 +1,113 @@
+<?php
+
+/**
+ * Implementation of hook_menu()
+**/
+function leasing_menu() {
+  $items = array();
+  $items['admin/config/development/set_leasing_period'] = array(
+    'description'       => t('Configuration of auto-leasing period'),
+    'title'             => t('Config period'),
+    'page callback'     => 'leasing_period_config_page',
+    'access arguments'  => array('administer leasing period'),
+    'type'              => MENU_NORMAL_ITEM,
+  );
+  return $items;
+}
+
+/**
+ * Leasing period configuration page.
+ * @return HTML text of leasing change period form
+**/
+function leasing_period_config_page() {
+  $formarray = drupal_get_form('leasing_set_period_form');
+  return drupal_render($formarray);
+}
+
+/**
+ * Implementation of hook_formID()
+**/
+function leasing_set_period_form($form, &$form_state) {
+  $periods = implode(', ', variable_get('periods_leasing', array())) ;
+  $form['period'] = array(
+    '#type'           => 'textfield',
+    '#title'          => t('Periods'),
+    '#default_value'  => $periods,
+    '#size'           => 60,
+    '#required'       => TRUE,
+    '#description'    => t('Enter all periods, separated by commas.'),
+  );
+  $form['submit'] = array('#type' => 'submit', '#value' => t('Save'));
+  return $form;
+}
+/**
+ * Check the input data of leasing_set_period_form
+ * Throw the form error in data is not valid
+**/
+function leasing_set_period_form_validate($form, &$form_state) {
+  $periods = explode(",", $form_state['values']['period']);
+  foreach ($periods as &$value) {
+    if (!(preg_match('/^\s*\d+\s*$/', $value) and $value = intval($value))) {
+      form_set_error('period', t('You must enter not null periods, separated only by commas. You can use only digits and commas.'));
+    }
+  }
+  $form_state['storage']['periods'] = $periods;
+}
+/**
+ * Save periods in periods_leasing variable
+**/
+function leasing_set_period_form_submit($form, &$form_state) {
+  variable_set('periods_leasing', $form_state['storage']['periods']) ;
+}
+/**
+ * Implementation of hook_permission()
+**/
+function leasing_permission() {
+  return array(
+    'administer leasing period' => array(
+      'title' => t('Administer leasing period'), 
+      'description' => t('Change leasing periods for using in auto leasing select'),
+    ),
+  );
+}
+/**
+ * Implementation of hook_form_FormID_alter()
+ equivalent to: 
+ hook_form_alter(){
+  if ($form_id = FormID){
+    do something
+  }
+ }
+**/
+function leasing_form_model_node_form_alter(&$form, &$form_state, $form_id) {
+  $form['first_pay'] = array(
+    '#type'           => 'textfield',
+    '#title'          => t('First pay'),
+    '#default_value'  => '',
+    '#size'           => 60,
+    '#required'       => TRUE,
+    '#description'    => t('Enter first pay.'),
+    '#weight'         => 2
+  );
+  $form['price_add_coef'] = array(
+    '#type'           => 'textfield',
+    '#title'          => t('Coefficient'),
+    '#default_value'  => '',
+    '#size'           => 60,
+    '#required'       => TRUE,
+    '#description'    => t('Price add coefficient.'),
+    '#weight'         => 2
+  );
+  $form['selected'] = array(
+    '#type'           => 'select',
+    '#title'          => t('Period'),
+    '#options'        => variable_get('periods_leasing', array()),
+    '#description'    => t('Select the pay period.'),
+    '#weight'         => 2
+  );
+  $form['field_marca']['#weight'] = -1;
+  $form['field_price']['#weight'] = 1;
+  
+  //var_dump($form['body']); die;
+}
+

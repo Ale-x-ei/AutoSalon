@@ -75,6 +75,7 @@ font-size:13px;
 margin: -106px 0px 0px 0px;
 float: right;
 z-index: 99999;}
+.errors{margin:-81px 0px 0px -20px;width:835px;}
 table {
 	display: block;
 	text-decoration: none;
@@ -204,7 +205,7 @@ body.sidebar-first #main {
   background:snow;
       -moz-border-radius:0 0 0 25px;
         border-radius:0 0 0 25px;
-		min-height: 750px;
+		min-height: 450px;
 }
 
 /* 2 columns: sidebar-second */

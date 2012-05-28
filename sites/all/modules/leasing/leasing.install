@@ -1,0 +1,62 @@
+<?php
+/**
+* Implementation of hook_schema()
+* @return
+ *   A leasing_data and model schema definition structure array. For each element of the
+ *   array, the key is a table name and the value is a table structure
+ *   definition.
+**/
+function leasing_schema() {
+  $schema = array();
+  $schema['leasing_data'] = array(
+    'fields'         => array(
+    'lid'            => array( 
+                      'type'           => 'int',
+                      'unsigned'       => TRUE,
+                      'not null'       => TRUE,
+                      'AUTO_INCREMENT' => TRUE,
+                      ),
+    'id_node'        => array( 
+                      'type'           => 'int',
+                      'unsigned'       => TRUE,
+                      'not null'       => TRUE,
+                      ),
+    'first_pay'      => array( 
+      	              'type'           => 'numeric',
+                      'unsigned'       => TRUE,
+                      'not null'       => TRUE,
+                      ),
+    'lease_period'   => array( 
+      	              'type'           => 'int',
+                      'unsigned'       => TRUE,
+                      'not null'       => TRUE,
+                      ),
+    'price_add_coef' => array( 
+      	              'type'           => 'numeric',
+                      'unsigned'       => TRUE,
+                      'not null'       => TRUE,
+                      ),
+                    ),
+        'primary key' => array( 'lid' ),
+        'indexes'     => array(
+        	'lid'      => array( 'lid' ),
+               	'id_node' => array( 'id_node')
+
+	  ),
+  );
+return $schema;
+}
+/**
+ * Implementation of hook_update_N() 
+**/
+function leasing_update_7100(&$sandbox) {
+  $query = db_select('system', 's');
+  $query->addExpression('MAX(s.weight)', 'weight');
+  $result = $query->execute();
+  $weight = $result->fetchColumn();
+  $weight++;
+  db_update('system')
+      ->fields(array('weight' => $weight))
+      ->condition('name', 'leasing')
+      ->execute(); 
+}
